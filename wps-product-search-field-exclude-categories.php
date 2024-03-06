@@ -20,11 +20,11 @@ class WPS_Product_Search_Field_Exclude_Categories {
 		add_action( 'wp_ajax_nopriv_product_search', array( __CLASS__, 'wp_ajax_product_search' ), 9 );
 	}
 
-	public static function example_wp_ajax_product_search() {
+	public static function wp_ajax_product_search() {
 		add_filter( 'woocommerce_product_object_query_args', array( __CLASS__, 'woocommerce_product_object_query_args' ) );
 	}
 
-	public static function example_woocommerce_product_object_query_args( $query_args ) {
+	public static function woocommerce_product_object_query_args( $query_args ) {
 		$excluded_categories = array( 19, 18 ); // category ids to exclude from search results
 		$all_categories = get_terms(
 			array(
